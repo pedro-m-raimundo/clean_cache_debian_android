@@ -72,24 +72,14 @@ function remove_empty_files_folders {
 		for j in "${@}" ; do
 			if [ "${j}" = "$1" ] ; then
 				continue
-			elif [ "${i}" = "${j}" ] && ! [ "${j}" = "$1" ] ; then
+			elif [ "${i}" = "${j}" ] ; then
 				return
 			fi
 		done
 		if [ -d "${i}" ] ; then
 			 remove_empty_files_folders "${i}"
-		fi
-
-		for i in "$1"/{.,}* ; do
-			for j in "${@}" ; do
-				if [ "${j}" = "$1" ] ; then
-					continue
-				elif [ "${i}" = "${j}" ] && ! [ "${j}" = "$1" ] ; then
-					return
-				fi
-			done
-		done
-		if [ "${i}" = "$1/*" ] ; then
+		
+		elif [ "${i}" = "$1/*" ] ; then
 			rm -r "$1"
 			echo -e "\e[92m>> Deleted $1\e[33m"
 			return
