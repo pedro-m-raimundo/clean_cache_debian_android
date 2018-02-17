@@ -17,26 +17,55 @@ In order for this to work, you need:
 **Functions:**
 
 
-* **_remove_type_**: delete files with the same extension from a certain folder.
+* **_remove_type_within_folder_**: delete files with the same extension from a certain folder.
 	* arguments:
 		* 1st &rarr; folder (full path).
 		* 2nd to last &rarr; extension type.
 <p>
 
-* **_remove_**: delete files or folders.
-	* all arguments: file or folder (full path).
-<p>
-
-* **_remove_folder_**: remove certain folders within a directory.
+* **_remove_folder_within_folder_**: remove certain folders within a directory.
 	* arguments:
 		* 1st &rarr; directory where the folders are (full path).
-		* 2nd to last &rarr; folders to delete (full path).
+		* 2nd to last &rarr; folders to delete (name of the folder).
+<p>
+
+* **_remove_file_within_folder_**: remove certain files within a directory.
+	* arguments:
+		* 1st &rarr; directory where the files are (full path).
+		* 2nd to last &rarr; files to delete (name of the file).
+<p>
+
+* **_remove_folder_within_subfolder_**: remove certain folders within a directory.
+	* arguments:
+		* 1st &rarr; directory where the folders are (full path).
+		* 2nd &rarr; how many layers should the function go. Choose:
+			* = 1 &rarr; only the folder itself.
+			* > 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
+			* = 0 &rarr; nothing happens.
+			* < 0 &rarr; the main folders and all subfolders
+		* 3rd to last &rarr; folders to delete (name of the folder).
+<p>
+
+* **_remove_file_within_subfolder_**: remove certain files within a directory.
+	* arguments:
+		* 1st &rarr; directory where the files are (full path).
+		* 2nd &rarr; how many layers should the function go. Choose:
+			* = 1 &rarr; only the folder itself.
+			* > 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
+			* = 0 &rarr; nothing happens.
+			* < 0 &rarr; the main folders and all subfolders
+		* 3rd to last &rarr; files to delete (name of the folder).
 <p>
 
 * **_remove_empty_files_folders_**: delete empty files and folders in the main folders and in all subfolders.
 	* arguments:
 		* 1st &rarr; main folder (full path).
-		* 2nd to last &rarr; folders and files to skip, if any (full path).
+		* 2nd &rarr; how many layers should the function go. Choose:
+			* = 1 &rarr; only the folder itself.
+			* > 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
+			* = 0 &rarr; nothing happens.
+			* < 0 &rarr; the main folders and all subfolders
+		* 3rd to last (optional) &rarr; folders and files to skip, if any (full path).
 
 ------
 
@@ -56,6 +85,7 @@ In order for this to work, you need:
 
 | Version number | Description |
 |----------------|:------------|
+| 3.0 | Complete overhaul on the system functions. Many bugs led to the rewrite of all them. All of them were fixed, some of them were renamed and others were created. It was also added compatibility between Android and Ubuntu (they both use Shell). Performance is lower than the other versions, but reliability was increased. |
 | 2.3.2 | Fixed a bug on the last function, where at folders were not skipped. |
 | 2.3.1 | Fixed bug in functions where not all arguments were parsed. |
 | 2.3 | Altered the first 3 function in order to parse multiple arguments. |
