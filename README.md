@@ -40,7 +40,7 @@ In order for this to work, you need:
 		* 1st &rarr; directory where the folders are (full path).
 		* 2nd &rarr; how many layers should the function go. Choose:
 			* = 1 &rarr; only the folder itself.
-			* > 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
+			* \> 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
 			* = 0 &rarr; nothing happens.
 			* < 0 &rarr; the main folders and all subfolders
 		* 3rd to last &rarr; folders to delete (name of the folder).
@@ -51,7 +51,7 @@ In order for this to work, you need:
 		* 1st &rarr; directory where the files are (full path).
 		* 2nd &rarr; how many layers should the function go. Choose:
 			* = 1 &rarr; only the folder itself.
-			* > 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
+			* \> 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
 			* = 0 &rarr; nothing happens.
 			* < 0 &rarr; the main folders and all subfolders
 		* 3rd to last &rarr; files to delete (name of the folder).
@@ -62,7 +62,7 @@ In order for this to work, you need:
 		* 1st &rarr; main folder (full path).
 		* 2nd &rarr; how many layers should the function go. Choose:
 			* = 1 &rarr; only the folder itself.
-			* > 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
+			* \> 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
 			* = 0 &rarr; nothing happens.
 			* < 0 &rarr; the main folders and all subfolders
 		* 3rd to last (optional) &rarr; folders and files to skip, if any (full path).
