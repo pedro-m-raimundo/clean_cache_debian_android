@@ -5,13 +5,21 @@ These bash scripts allows users to delete their unwanted files (it can be anythi
 
 ------
 
-In order for this to work, you need:
+In order for this to work on **Android**, you need:
 
 1. Download and install [Terminal Emulator for Android](https://play.google.com/store/apps/details?id=jackpal.androidterm).
 2. Put the folder with the scripts on a directory of your choice.
 3. **ONLY MODIFY THE CLEAN_CACHE_USER FILE with the available functions. Also beware that not all text editors for Windows work for this kind of script (It's because of the "Enter" key)!**
 4. Put _"cd PATH_TO_LOCATION/clean_cache_ubuntu_android"_ and _"sh CLEAN_CACHE_USER.sh"_ as the initial command in the preferences to run the file everytime you open the Terminal.
 5. Enjoy!
+------
+
+In order for this to work on **Ubuntu**, you need:
+
+1. Put the folder with the scripts on a directory of your choice.
+2. **ONLY MODIFY THE CLEAN_CACHE_USER FILE with the available functions. Also beware that not all text editors for Windows work for this kind of script (It's because of the "Enter" key)!**
+3. Execute _"cd PATH_TO_LOCATION/clean_cache_ubuntu_android"_ and _"sh CLEAN_CACHE_USER.sh"_ on the terminal.
+4. Enjoy!
 ------
 
 **Functions:**
