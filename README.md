@@ -24,6 +24,13 @@ In order for this to work on **Ubuntu**, you need:
 
 **Functions:**
 
+* **_remove_folder_**: delete folders.
+	* all arguments: full path of the folders.
+<p>
+
+* **_remove_file_**: delete files.
+	* all arguments: full path of the files.
+<p>
 
 * **_remove_type_within_folder_**: delete files with the same extension from a certain folder.
 	* arguments:
@@ -93,6 +100,7 @@ In order for this to work on **Ubuntu**, you need:
 
 | Version number | Description |
 |----------------|:------------|
+| 3.1 | Restored two functions where a folders and files can be directly deleted instead of searching for them ("_remove_file_" and "_remove_folder_"). |
 | 3.0 | Complete overhaul on the system functions. Many bugs led to the rewrite of all them. All of them were fixed, some of them were renamed and others were created. It was also added compatibility between Android and Ubuntu (they both use Shell). Performance is lower than the other versions, but reliability was increased. |
 | 2.3.2 | Fixed a bug on the last function, where at folders were not skipped. |
 | 2.3.1 | Fixed bug in functions where not all arguments were parsed. |

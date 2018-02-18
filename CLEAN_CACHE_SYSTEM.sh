@@ -1,5 +1,41 @@
 #!/bin/bash
-#version: 3.0
+#version: 3.1
+# -------------------------------------------------------------------
+function remove_folder {
+
+	for j in "${@}" ; do
+
+		if [ "${j}" = "." ] || [ "${j}" = ".." ] ; then
+			continue
+
+		elif [ -d "${j}" ] ; then
+			rm -r "${j}"
+			OK="$?"
+
+			if [ "$OK" -eq 0 ] ; then
+				echo -e "\e[92m>> Deleted ${j}\e[33m"
+			fi		
+		fi
+	done
+}
+# -------------------------------------------------------------------
+function remove_file {
+
+	for j in "${@}" ; do
+
+		if [ "${j}" = "." ] || [ "${j}" = ".." ] ; then
+			continue
+
+		elif ! [ -d "${j}" ] ; then
+			rm "${j}"
+			OK="$?"
+
+			if [ "$OK" -eq 0 ] ; then
+				echo -e "\e[96m>> Deleted ${j}\e[33m"
+			fi		
+		fi
+	done
+}
 # -------------------------------------------------------------------
 function remove_type_within_folder {
 
