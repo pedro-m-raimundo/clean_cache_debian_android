@@ -1,5 +1,5 @@
 #!/bin/bash
-#version: 3.1.2
+#version: 3.1.3
 # -------------------------------------------------------------------
 function remove_folder {
 
@@ -198,6 +198,14 @@ function remove_folder_within_subfolder {
 				fi
 			done
 		done
+
+	elif ! [[ $2 =~ ^-?[0-9]+$ ]] ; then
+		LINE=$(caller)
+
+		for i in $LINE ; do
+			echo -e "\e[33m[ERROR in line ${i}]: \"$2\" isn't an integer\e[33m"
+			break
+		done
 	fi
 }
 # -------------------------------------------------------------------
@@ -249,6 +257,14 @@ function remove_file_within_subfolder {
 					fi
 				fi
 			done
+		done
+	
+	elif ! [[ $2 =~ ^-?[0-9]+$ ]] ; then
+		LINE=$(caller)
+
+		for i in $LINE ; do
+			echo -e "\e[33m[ERROR in line ${i}]: \"$2\" isn't an integer\e[33m"
+			break
 		done
 	fi
 }
@@ -338,5 +354,13 @@ function remove_empty_files_folders {
 
 			return
 		fi
+
+	elif ! [[ $2 =~ ^-?[0-9]+$ ]] ; then
+		LINE=$(caller)
+
+		for i in $LINE ; do
+			echo -e "\e[33m[ERROR in line ${i}]: \"$2\" isn't an integer\e[33m"
+			break
+		done
 	fi
 }
