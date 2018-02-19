@@ -100,6 +100,7 @@ In order for this to work on **Ubuntu**, you need:
 
 | Version number | Description |
 |----------------|:------------|
+| 3.1.2 | Added another condition to all functions that allow searching in layers to accept only integers on their second argument ("_remove_folder_within_subfolder_", "_remove_file_within_subfolder_" and "_remove_empty_files_folders_"). |
 | 3.1.1 | Added a condition to all functions (except "_remove_file_" and "_remove_folder_") to skip them if the main folder doesn't exist. |
 | 3.1 | Restored two functions where a folders and files can be directly deleted instead of searching for them ("_remove_file_" and "_remove_folder_"). |
 | 3.0 | Complete overhaul on the system functions. Many bugs led to the rewrite of all them. All of them were fixed, some of them were renamed and others were created. It was also added compatibility between Android and Ubuntu (they both use Shell). Performance is lower than the other versions, but reliability was increased. |

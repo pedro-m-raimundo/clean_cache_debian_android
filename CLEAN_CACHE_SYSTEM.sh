@@ -1,5 +1,5 @@
 #!/bin/bash
-#version: 3.1.1
+#version: 3.1.2
 # -------------------------------------------------------------------
 function remove_folder {
 
@@ -151,7 +151,7 @@ function remove_file_within_folder {
 # -------------------------------------------------------------------
 function remove_folder_within_subfolder {
 
-	if [ -e "$1" ] ; then
+	if [ -e "$1" ] && [[ $2 =~ ^-?[0-9]+$ ]] ; then
 
 		first_argument=$1
 		second_argument=$2
@@ -203,7 +203,7 @@ function remove_folder_within_subfolder {
 # -------------------------------------------------------------------
 function remove_file_within_subfolder {
 
-	if [ -e "$1" ] ; then
+	if [ -e "$1" ] && [[ $2 =~ ^-?[0-9]+$ ]] ; then
 
 		first_argument=$1
 		second_argument=$2
@@ -255,7 +255,7 @@ function remove_file_within_subfolder {
 # -------------------------------------------------------------------
 function remove_empty_files_folders {
 
-	if [ -e "$1" ] ; then
+	if [ -e "$1" ] && [[ $2 =~ ^-?[0-9]+$ ]] ; then
 
 		first_argument=$1
 		second_argument=$2
