@@ -57,7 +57,7 @@ In order for this to work on **Ubuntu**, you need:
 			* = 1 &rarr; only the folder itself.
 			* \> 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
 			* = 0 &rarr; nothing happens.
-			* < 0 &rarr; the main folders and all subfolders
+			* anything else &rarr; the main folders and all subfolders
 		* 3rd to last &rarr; folders to delete (name of the folder).
 <p>
 
@@ -68,7 +68,7 @@ In order for this to work on **Ubuntu**, you need:
 			* = 1 &rarr; only the folder itself.
 			* \> 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
 			* = 0 &rarr; nothing happens.
-			* < 0 &rarr; the main folders and all subfolders
+			* anything else &rarr; the main folders and all subfolders
 		* 3rd to last &rarr; files to delete (name of the folder).
 <p>
 
@@ -79,7 +79,7 @@ In order for this to work on **Ubuntu**, you need:
 			* = 1 &rarr; only the folder itself.
 			* \> 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
 			* = 0 &rarr; nothing happens.
-			* < 0 &rarr; the main folders and all subfolders
+			* anything else &rarr; the main folders and all subfolders
 		* 3rd to last (optional) &rarr; folders and files to skip, if any (full path).
 
 ------
@@ -100,6 +100,7 @@ In order for this to work on **Ubuntu**, you need:
 
 | Version number | Description |
 |----------------|:------------|
+| 3.2 | Rewrite of the version 3.1.3, to make all functions display error messages when arguments are missing. |
 | 3.1.3 | Error message is displayed when the second argument of the last three functions is not an integer and shows the line where the function is called. |
 | 3.1.2 | Added another condition to all functions that allow searching in layers to accept only integers on their second argument ("_remove_folder_within_subfolder_", "_remove_file_within_subfolder_" and "_remove_empty_files_folders_"). |
 | 3.1.1 | Added a condition to all functions (except "_remove_file_" and "_remove_folder_") to skip them if the main folder doesn't exist. |

@@ -1,7 +1,17 @@
 #!/bin/bash
-#version: 3.1.3
+#version: 3.2
 # -------------------------------------------------------------------
 function remove_folder {
+
+	LINE=$(caller)
+
+	if [[ -z "$1" ]] ; then
+
+		for i in $LINE ; do
+			echo -e "\e[33m[ERROR in line ${i}]: function without arguments\e[33m"
+			return
+		done
+	fi
 
 	for j in "${@}" ; do
 
@@ -21,6 +31,16 @@ function remove_folder {
 # -------------------------------------------------------------------
 function remove_file {
 
+	LINE=$(caller)
+
+	if [[ -z "$1" ]] ; then
+
+		for i in $LINE ; do
+			echo -e "\e[33m[ERROR in line ${i}]: function without arguments\e[33m"
+			return
+		done
+	fi
+
 	for j in "${@}" ; do
 
 		if [ "${j}" = "." ] || [ "${j}" = ".." ] ; then
@@ -39,7 +59,25 @@ function remove_file {
 # -------------------------------------------------------------------
 function remove_type_within_folder {
 
-	if [ -e "$1" ] ; then
+	LINE=$(caller)
+
+	if [[ -z "$1" ]] ; then
+
+		for i in $LINE ; do
+			echo -e "\e[33m[ERROR in line ${i}]: 1st argument is empty\e[33m"
+			break
+		done
+	fi
+
+	if [[ -z "$2" ]] ; then
+		
+		for i in $LINE ; do
+			echo -e "\e[33m[ERROR in line ${i}]: 2nd argument is empty\e[33m"
+			break
+		done
+	fi
+
+	if [ -e "$1" ] && ! [[ -z "$1" ]] && ! [[ -z "$2" ]] ; then
 
 		for j in "${@}" ; do
 
@@ -76,7 +114,25 @@ function remove_type_within_folder {
 # -------------------------------------------------------------------
 function remove_folder_within_folder {
 
-	if [ -e "$1" ] ; then
+	LINE=$(caller)
+
+	if [[ -z "$1" ]] ; then
+
+		for i in $LINE ; do
+			echo -e "\e[33m[ERROR in line ${i}]: 1st argument is empty\e[33m"
+			break
+		done
+	fi
+
+	if [[ -z "$2" ]] ; then
+		
+		for i in $LINE ; do
+			echo -e "\e[33m[ERROR in line ${i}]: 2nd argument is empty\e[33m"
+			break
+		done
+	fi
+
+	if [ -e "$1" ] && ! [[ -z "$1" ]] && ! [[ -z "$2" ]] ; then
 
 		arr1="$( ls -a "$1")"
 		SAVEIFS=$IFS
@@ -114,7 +170,25 @@ function remove_folder_within_folder {
 # -------------------------------------------------------------------
 function remove_file_within_folder {
 
-	if [ -e "$1" ] ; then
+	LINE=$(caller)
+
+	if [[ -z "$1" ]] ; then
+
+		for i in $LINE ; do
+			echo -e "\e[33m[ERROR in line ${i}]: 1st argument is empty\e[33m"
+			break
+		done
+	fi
+
+	if [[ -z "$2" ]] ; then
+		
+		for i in $LINE ; do
+			echo -e "\e[33m[ERROR in line ${i}]: 2nd argument is empty\e[33m"
+			break
+		done
+	fi
+
+	if [ -e "$1" ] && ! [[ -z "$1" ]] && ! [[ -z "$2" ]] ; then
 
 		arr1="$( ls -a "$1")"
 		SAVEIFS=$IFS
@@ -151,7 +225,25 @@ function remove_file_within_folder {
 # -------------------------------------------------------------------
 function remove_folder_within_subfolder {
 
-	if [ -e "$1" ] && [[ $2 =~ ^-?[0-9]+$ ]] ; then
+	LINE=$(caller)
+
+	if [[ -z "$1" ]] ; then
+
+		for i in $LINE ; do
+			echo -e "\e[33m[ERROR in line ${i}]: 1st argument is empty\e[33m"
+			break
+		done
+	fi
+
+	if [[ -z "$2" ]] ; then
+		
+		for i in $LINE ; do
+			echo -e "\e[33m[ERROR in line ${i}]: 2nd argument is empty\e[33m"
+			break
+		done
+	fi
+
+	if [ -e "$1" ] && ! [[ -z "$1" ]] && ! [[ -z "$2" ]] ; then
 
 		first_argument=$1
 		second_argument=$2
@@ -198,20 +290,30 @@ function remove_folder_within_subfolder {
 				fi
 			done
 		done
-
-	elif ! [[ $2 =~ ^-?[0-9]+$ ]] ; then
-		LINE=$(caller)
-
-		for i in $LINE ; do
-			echo -e "\e[33m[ERROR in line ${i}]: \"$2\" isn't an integer\e[33m"
-			break
-		done
 	fi
 }
 # -------------------------------------------------------------------
 function remove_file_within_subfolder {
 
-	if [ -e "$1" ] && [[ $2 =~ ^-?[0-9]+$ ]] ; then
+	LINE=$(caller)
+
+	if [[ -z "$1" ]] ; then
+
+		for i in $LINE ; do
+			echo -e "\e[33m[ERROR in line ${i}]: 1st argument is empty\e[33m"
+			break
+		done
+	fi
+
+	if [[ -z "$2" ]] ; then
+		
+		for i in $LINE ; do
+			echo -e "\e[33m[ERROR in line ${i}]: 2nd argument is empty\e[33m"
+			break
+		done
+	fi
+
+	if [ -e "$1" ] && ! [[ -z "$1" ]] && ! [[ -z "$2" ]] ; then
 
 		first_argument=$1
 		second_argument=$2
@@ -258,20 +360,30 @@ function remove_file_within_subfolder {
 				fi
 			done
 		done
-	
-	elif ! [[ $2 =~ ^-?[0-9]+$ ]] ; then
-		LINE=$(caller)
-
-		for i in $LINE ; do
-			echo -e "\e[33m[ERROR in line ${i}]: \"$2\" isn't an integer\e[33m"
-			break
-		done
 	fi
 }
 # -------------------------------------------------------------------
 function remove_empty_files_folders {
 
-	if [ -e "$1" ] && [[ $2 =~ ^-?[0-9]+$ ]] ; then
+	LINE=$(caller)
+
+	if [[ -z "$1" ]] ; then
+
+		for i in $LINE ; do
+			echo -e "\e[33m[ERROR in line ${i}]: 1st argument is empty\e[33m"
+			break
+		done
+	fi
+
+	if [[ -z "$2" ]] ; then
+		
+		for i in $LINE ; do
+			echo -e "\e[33m[ERROR in line ${i}]: 2nd argument is empty\e[33m"
+			break
+		done
+	fi
+
+	if [ -e "$1" ] && ! [[ -z "$1" ]] && ! [[ -z "$2" ]] ; then
 
 		first_argument=$1
 		second_argument=$2
@@ -354,13 +466,5 @@ function remove_empty_files_folders {
 
 			return
 		fi
-
-	elif ! [[ $2 =~ ^-?[0-9]+$ ]] ; then
-		LINE=$(caller)
-
-		for i in $LINE ; do
-			echo -e "\e[33m[ERROR in line ${i}]: \"$2\" isn't an integer\e[33m"
-			break
-		done
 	fi
 }
