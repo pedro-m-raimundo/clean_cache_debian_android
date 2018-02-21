@@ -100,6 +100,7 @@ In order for this to work on **Ubuntu**, you need:
 
 | Version number | Description |
 |----------------|:------------|
+| 3.2.1 | Rewrite of the displayed error messages, because the "_caller_" function doesn't work on shell. So, instead of showing the line, now it shows the name of the function. |
 | 3.2 | Rewrite of the version 3.1.3, to make all functions display error messages when arguments are missing. |
 | 3.1.3 | Error message is displayed when the second argument of the last three functions is not an integer and shows the line where the function is called. |
 | 3.1.2 | Added another condition to all functions that allow searching in layers to accept only integers on their second argument ("_remove_folder_within_subfolder_", "_remove_file_within_subfolder_" and "_remove_empty_files_folders_"). |

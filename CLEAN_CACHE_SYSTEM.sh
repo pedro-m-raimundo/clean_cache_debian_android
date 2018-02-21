@@ -1,16 +1,10 @@
 #!/bin/bash
-#version: 3.2
+#version: 3.2.1
 # -------------------------------------------------------------------
 function remove_folder {
 
-	LINE=$(caller)
-
 	if [[ -z "$1" ]] ; then
-
-		for i in $LINE ; do
-			echo -e "\e[33m[ERROR in line ${i}]: function without arguments\e[33m"
-			return
-		done
+		echo -e "\e[33m[ERROR in function \"remove_folder\"]: function without arguments\e[33m"
 	fi
 
 	for j in "${@}" ; do
@@ -31,14 +25,8 @@ function remove_folder {
 # -------------------------------------------------------------------
 function remove_file {
 
-	LINE=$(caller)
-
 	if [[ -z "$1" ]] ; then
-
-		for i in $LINE ; do
-			echo -e "\e[33m[ERROR in line ${i}]: function without arguments\e[33m"
-			return
-		done
+		echo -e "\e[33m[ERROR in function \"remove_file\"]: function without arguments\e[33m"
 	fi
 
 	for j in "${@}" ; do
@@ -59,22 +47,12 @@ function remove_file {
 # -------------------------------------------------------------------
 function remove_type_within_folder {
 
-	LINE=$(caller)
-
 	if [[ -z "$1" ]] ; then
-
-		for i in $LINE ; do
-			echo -e "\e[33m[ERROR in line ${i}]: 1st argument is empty\e[33m"
-			break
-		done
+		echo -e "\e[33m[ERROR in function \"remove_type_within_folder\"]: 1st argument is empty\e[33m"
 	fi
 
 	if [[ -z "$2" ]] ; then
-		
-		for i in $LINE ; do
-			echo -e "\e[33m[ERROR in line ${i}]: 2nd argument is empty\e[33m"
-			break
-		done
+		echo -e "\e[33m[ERROR in function \"remove_type_within_folder\"]: 2nd argument is empty\e[33m"
 	fi
 
 	if [ -e "$1" ] && ! [[ -z "$1" ]] && ! [[ -z "$2" ]] ; then
@@ -114,22 +92,12 @@ function remove_type_within_folder {
 # -------------------------------------------------------------------
 function remove_folder_within_folder {
 
-	LINE=$(caller)
-
 	if [[ -z "$1" ]] ; then
-
-		for i in $LINE ; do
-			echo -e "\e[33m[ERROR in line ${i}]: 1st argument is empty\e[33m"
-			break
-		done
+		echo -e "\e[33m[ERROR in function \"remove_folder_within_folder\"]: 1st argument is empty\e[33m"
 	fi
 
 	if [[ -z "$2" ]] ; then
-		
-		for i in $LINE ; do
-			echo -e "\e[33m[ERROR in line ${i}]: 2nd argument is empty\e[33m"
-			break
-		done
+		echo -e "\e[33m[ERROR in function \"remove_folder_within_folder\"]: 2nd argument is empty\e[33m"
 	fi
 
 	if [ -e "$1" ] && ! [[ -z "$1" ]] && ! [[ -z "$2" ]] ; then
@@ -170,22 +138,12 @@ function remove_folder_within_folder {
 # -------------------------------------------------------------------
 function remove_file_within_folder {
 
-	LINE=$(caller)
-
 	if [[ -z "$1" ]] ; then
-
-		for i in $LINE ; do
-			echo -e "\e[33m[ERROR in line ${i}]: 1st argument is empty\e[33m"
-			break
-		done
+		echo -e "\e[33m[ERROR in function \"remove_file_within_folder\"]: 1st argument is empty\e[33m"
 	fi
 
 	if [[ -z "$2" ]] ; then
-		
-		for i in $LINE ; do
-			echo -e "\e[33m[ERROR in line ${i}]: 2nd argument is empty\e[33m"
-			break
-		done
+		echo -e "\e[33m[ERROR in function \"remove_file_within_folder\"]: 2nd argument is empty\e[33m"
 	fi
 
 	if [ -e "$1" ] && ! [[ -z "$1" ]] && ! [[ -z "$2" ]] ; then
@@ -225,22 +183,12 @@ function remove_file_within_folder {
 # -------------------------------------------------------------------
 function remove_folder_within_subfolder {
 
-	LINE=$(caller)
-
 	if [[ -z "$1" ]] ; then
-
-		for i in $LINE ; do
-			echo -e "\e[33m[ERROR in line ${i}]: 1st argument is empty\e[33m"
-			break
-		done
+		echo -e "\e[33m[ERROR in function \"remove_folder_within_subfolder\"]: 1st argument is empty\e[33m"
 	fi
 
 	if [[ -z "$2" ]] ; then
-		
-		for i in $LINE ; do
-			echo -e "\e[33m[ERROR in line ${i}]: 2nd argument is empty\e[33m"
-			break
-		done
+		echo -e "\e[33m[ERROR in function \"remove_folder_within_subfolder\"]: 2nd argument is empty\e[33m"
 	fi
 
 	if [ -e "$1" ] && ! [[ -z "$1" ]] && ! [[ -z "$2" ]] ; then
@@ -295,22 +243,12 @@ function remove_folder_within_subfolder {
 # -------------------------------------------------------------------
 function remove_file_within_subfolder {
 
-	LINE=$(caller)
-
 	if [[ -z "$1" ]] ; then
-
-		for i in $LINE ; do
-			echo -e "\e[33m[ERROR in line ${i}]: 1st argument is empty\e[33m"
-			break
-		done
+		echo -e "\e[33m[ERROR in function \"remove_file_within_subfolder\"]: 1st argument is empty\e[33m"
 	fi
 
 	if [[ -z "$2" ]] ; then
-		
-		for i in $LINE ; do
-			echo -e "\e[33m[ERROR in line ${i}]: 2nd argument is empty\e[33m"
-			break
-		done
+		echo -e "\e[33m[ERROR in function \"remove_file_within_subfolder\"]: 2nd argument is empty\e[33m"
 	fi
 
 	if [ -e "$1" ] && ! [[ -z "$1" ]] && ! [[ -z "$2" ]] ; then
@@ -365,22 +303,12 @@ function remove_file_within_subfolder {
 # -------------------------------------------------------------------
 function remove_empty_files_folders {
 
-	LINE=$(caller)
-
 	if [[ -z "$1" ]] ; then
-
-		for i in $LINE ; do
-			echo -e "\e[33m[ERROR in line ${i}]: 1st argument is empty\e[33m"
-			break
-		done
+		echo -e "\e[33m[ERROR in function \"remove_empty_files_folders\"]: 1st argument is empty\e[33m"
 	fi
 
 	if [[ -z "$2" ]] ; then
-		
-		for i in $LINE ; do
-			echo -e "\e[33m[ERROR in line ${i}]: 2nd argument is empty\e[33m"
-			break
-		done
+		echo -e "\e[33m[ERROR in function \"remove_empty_files_folders\"]: 2nd argument is empty\e[33m"
 	fi
 
 	if [ -e "$1" ] && ! [[ -z "$1" ]] && ! [[ -z "$2" ]] ; then
