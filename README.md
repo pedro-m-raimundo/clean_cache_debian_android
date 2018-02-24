@@ -32,43 +32,36 @@ In order for this to work on **Ubuntu**, you need:
 	* all arguments: full path of the files.
 
 
-* **_remove_type_within_folder_**: delete files with the same extension from a certain folder.
+* **_remove_type_**: delete files with the same extension from a certain folder.
 	* arguments:
 		* 1st &rarr; folder (full path).
-		* 2nd to last &rarr; extension type.
+		* 2nd &rarr; how many layers should the function go. Choose:
+			* = 1 &rarr; only the folder itself.
+			* \> 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
+			* = 0 &rarr; nothing happens.
+			* anything else &rarr; the main folders and all subfolders.
+		* 3rd to last &rarr; extension type.
 
 
-* **_remove_folder_within_folder_**: remove certain folders within a directory.
-	* arguments:
-		* 1st &rarr; directory where the folders are (full path).
-		* 2nd to last &rarr; folders to delete (name of the folder).
-
-
-* **_remove_file_within_folder_**: remove certain files within a directory.
-	* arguments:
-		* 1st &rarr; directory where the files are (full path).
-		* 2nd to last &rarr; files to delete (name of the file).
-
-
-* **_remove_folder_within_subfolder_**: remove certain folders within a directory.
+* **_remove_folder_in_folders_**: remove certain folders within a directory.
 	* arguments:
 		* 1st &rarr; directory where the folders are (full path).
 		* 2nd &rarr; how many layers should the function go. Choose:
 			* = 1 &rarr; only the folder itself.
 			* \> 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
 			* = 0 &rarr; nothing happens.
-			* anything else &rarr; the main folders and all subfolders
+			* anything else &rarr; the main folders and all subfolders.
 		* 3rd to last &rarr; folders to delete (name of the folder).
 
 
-* **_remove_file_within_subfolder_**: remove certain files within a directory.
+* **_remove_file_in_folders_**: remove certain files within a directory.
 	* arguments:
 		* 1st &rarr; directory where the files are (full path).
 		* 2nd &rarr; how many layers should the function go. Choose:
 			* = 1 &rarr; only the folder itself.
 			* \> 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
 			* = 0 &rarr; nothing happens.
-			* anything else &rarr; the main folders and all subfolders
+			* anything else &rarr; the main folders and all subfolders.
 		* 3rd to last &rarr; files to delete (name of the folder).
 
 
@@ -79,7 +72,7 @@ In order for this to work on **Ubuntu**, you need:
 			* = 1 &rarr; only the folder itself.
 			* \> 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
 			* = 0 &rarr; nothing happens.
-			* anything else &rarr; the main folders and all subfolders
+			* anything else &rarr; the main folders and all subfolders.
 		* 3rd to last (optional) &rarr; folders and files to skip, if any (full path).
 
 ------
@@ -100,6 +93,7 @@ In order for this to work on **Ubuntu**, you need:
 
 | Version number | Description |
 |----------------|:------------|
+| 3.3 | Removed 2 functions ("_remove_folder_within_folder_" and "_remove_file_within_folder_") because they were just the two recursive functions ("_remove_folder_within_subfolder_" and "_remove_file_within_subfolder_") on layer 1. Renamed three functions ("_remove_folder_within_subfolder_" to "_remove_folder_in_folders_", "_remove_file_within_subfolder_" to "_remove_file_in_folders_" and "_remove_folder_within_folder_" to "_remove_type_"). Warning messages were also improved. |
 | 3.2.1 | Rewrite of the displayed error messages, because the "_caller_" function doesn't work on shell. So, instead of showing the line, now it shows the name of the function. |
 | 3.2 | Rewrite of the version 3.1.3, to make all functions display error messages when arguments are missing. |
 | 3.1.3 | Error message is displayed when the second argument of the last three functions is not an integer and shows the line where the function is called. |

@@ -1,10 +1,11 @@
 #!/bin/bash
-#version: 3.2.1
+#version: 3.3
 # -------------------------------------------------------------------
 function remove_folder {
 
 	if [[ -z "$1" ]] ; then
-		echo -e "\e[33m[ERROR in function \"remove_folder\"]: function without arguments\e[33m"
+		echo -e "\n\e[33m[ERROR in \"remove_folder\"]: 1st argument\n\t -> Function without arguments\e[33m\n"
+		return
 	fi
 
 	for j in "${@}" ; do
@@ -26,7 +27,8 @@ function remove_folder {
 function remove_file {
 
 	if [[ -z "$1" ]] ; then
-		echo -e "\e[33m[ERROR in function \"remove_file\"]: function without arguments\e[33m"
+		echo -e "\n\e[33m[ERROR in \"remove_file\"]: 1st argument\n\t -> Function without arguments\e[33m\n"
+		return
 	fi
 
 	for j in "${@}" ; do
@@ -34,7 +36,7 @@ function remove_file {
 		if [ "${j}" = "." ] || [ "${j}" = ".." ] ; then
 			continue
 
-		elif ! [ -d "${j}" ] ; then
+		elif ! [ -d "${j}" ] && [ -e "${j}" ] ; then
 			rm "${j}"
 			OK="$?"
 
@@ -45,64 +47,35 @@ function remove_file {
 	done
 }
 # -------------------------------------------------------------------
-function remove_type_within_folder {
+function remove_type {
 
 	if [[ -z "$1" ]] ; then
-		echo -e "\e[33m[ERROR in function \"remove_type_within_folder\"]: 1st argument is empty\e[33m"
+		echo -e "\n\e[33m[ERROR in \"remove_type\"]: 1st argument\n\t -> Function without arguments\e[33m\n"
+		return
 	fi
 
 	if [[ -z "$2" ]] ; then
-		echo -e "\e[33m[ERROR in function \"remove_type_within_folder\"]: 2nd argument is empty\e[33m"
+		echo -e "\n\e[33m[ERROR in \"remove_type\"]: 2nd argument\n\t -> No maximum layer assigned\e[33m\n"
+		return
 	fi
 
-	if [ -e "$1" ] && ! [[ -z "$1" ]] && ! [[ -z "$2" ]] ; then
-
-		for j in "${@}" ; do
-
-			if [ "${j}" = "$1" ] ; then
-					continue
-
-			else
-				arr1="$( ls -a "$1"/*".${j}" )"
-				
-				SAVEIFS=$IFS
-				IFS=$'\n'
-				array=($arr1)
-				IFS=$SAVEIFS
-
-				if [ "${#array[@]}" = 0 ] ; then
-					return
-				fi
-
-				for i in "${array[@]}" ; do
-
-					if ! [ -d "${i}" ] ; then
-						rm "${i}"
-						OK="$?"
-
-						if [ "$OK" -eq 0 ] ; then
-							echo -e "\e[96m>> Deleted ${i}\e[33m"
-						fi
-					fi
-				done
-			fi
-		done
-	fi
-}
-# -------------------------------------------------------------------
-function remove_folder_within_folder {
-
-	if [[ -z "$1" ]] ; then
-		echo -e "\e[33m[ERROR in function \"remove_folder_within_folder\"]: 1st argument is empty\e[33m"
+	if [[ -z "$3" ]] ; then
+		echo -e "\n\e[33m[ERROR in \"remove_type\"]: 3rd argument\n\t -> There must be, at least, one type of extension to delete\e[33m\n"
+		return
 	fi
 
-	if [[ -z "$2" ]] ; then
-		echo -e "\e[33m[ERROR in function \"remove_folder_within_folder\"]: 2nd argument is empty\e[33m"
-	fi
+	if [ -e "$1" ] ; then
 
-	if [ -e "$1" ] && ! [[ -z "$1" ]] && ! [[ -z "$2" ]] ; then
+		first_argument=$1
+		second_argument=$2
+		shift
+		shift
 
-		arr1="$( ls -a "$1")"
+		if [ $second_argument = 0 ] ; then
+			return
+		fi
+
+		arr1="$( ls -a "$first_argument")"
 		SAVEIFS=$IFS
 		IFS=$'\n'
 		array=($arr1)
@@ -115,65 +88,26 @@ function remove_folder_within_folder {
 		for i in "${array[@]}" ; do
 			for j in "${@}" ; do
 
-				if [ "${j}" = "$1" ] ; then
+				if [ "${j}" = "$first_argument" ] || [ "${j}" = "$second_argument" ] ; then
 					continue
 
 				else
 					if [ "${i}" = "." ] || [ "${i}" = ".." ] ; then
 						continue
 
-					elif [ -d "$1/${i}" ] && [ "${i}" = "${j}" ] ; then
-						rm -r "$1/${i}"
+					elif ! [ -d "$first_argument/${i}" ] && [[ "${i}" == *"${j}" ]] ; then
+						rm "$first_argument/${i}"
 						OK="$?"
 
 						if [ "$OK" -eq 0 ] ; then
-							echo -e "\e[92m>> Deleted $1/${i}\e[33m"
-						fi		
-					fi
-				fi
-			done
-		done
-	fi
-}
-# -------------------------------------------------------------------
-function remove_file_within_folder {
-
-	if [[ -z "$1" ]] ; then
-		echo -e "\e[33m[ERROR in function \"remove_file_within_folder\"]: 1st argument is empty\e[33m"
-	fi
-
-	if [[ -z "$2" ]] ; then
-		echo -e "\e[33m[ERROR in function \"remove_file_within_folder\"]: 2nd argument is empty\e[33m"
-	fi
-
-	if [ -e "$1" ] && ! [[ -z "$1" ]] && ! [[ -z "$2" ]] ; then
-
-		arr1="$( ls -a "$1")"
-		SAVEIFS=$IFS
-		IFS=$'\n'
-		array=($arr1)
-		IFS=$SAVEIFS
-
-		if [ "${#array[@]}" = 2 ] ; then
-			return
-		fi
-
-		for i in "${array[@]}" ; do
-			for j in "${@}" ; do
-
-				if [ "${j}" = "$1" ] ; then
-					continue
-
-				else
-					if [ "${i}" = "." ] || [ "${i}" = ".." ] ; then
-						continue
-					elif ! [ -d "$1/${i}" ] && [ "${i}" = "${j}" ] ; then
-						rm "$1/${i}"
-						OK="$?"
-
-						if [ "$OK" -eq 0 ] ; then
-							echo -e "\e[96m>> Deleted $1/${i}\e[33m"
+							echo -e "\e[96m>> Deleted $first_argument/${i}\e[33m"
 						fi
+
+					elif [ -d "$first_argument/${i}" ] ; then
+						remove_type "$first_argument/${i}" $(($second_argument-1)) "${@}"
+						first_argument=${first_argument%/*}
+						second_argument=$(($second_argument+1))
+							
 					fi
 				fi
 			done
@@ -181,17 +115,24 @@ function remove_file_within_folder {
 	fi
 }
 # -------------------------------------------------------------------
-function remove_folder_within_subfolder {
+function remove_folder_in_folders {
 
 	if [[ -z "$1" ]] ; then
-		echo -e "\e[33m[ERROR in function \"remove_folder_within_subfolder\"]: 1st argument is empty\e[33m"
+		echo -e "\n\e[33m[ERROR in \"remove_folder_in_folders\"]: 1st argument\n\t -> Function without arguments\e[33m\n"
+		return
 	fi
 
 	if [[ -z "$2" ]] ; then
-		echo -e "\e[33m[ERROR in function \"remove_folder_within_subfolder\"]: 2nd argument is empty\e[33m"
+		echo -e "\n\e[33m[ERROR in \"remove_folder_in_folders\"]: 2nd argument\n\t -> No maximum layer assigned\e[33m\n"
+		return
 	fi
 
-	if [ -e "$1" ] && ! [[ -z "$1" ]] && ! [[ -z "$2" ]] ; then
+	if [[ -z "$3" ]] ; then
+		echo -e "\n\e[33m[ERROR in \"remove_folder_in_folders\"]: 3rd argument\n\t -> There must be, at least, one folder to delete\e[33m\n"
+		return
+	fi
+
+	if [ -e "$1" ] ; then
 
 		first_argument=$1
 		second_argument=$2
@@ -231,7 +172,7 @@ function remove_folder_within_subfolder {
 						fi
 
 					elif [ -d "$first_argument/${i}" ] ; then
-						remove_folder_within_subfolder "$first_argument/${i}" $(($second_argument-1)) "${@}"
+						remove_folder_in_folders "$first_argument/${i}" $(($second_argument-1)) "${@}"
 						first_argument=${first_argument%/*}
 						second_argument=$(($second_argument+1))
 					fi
@@ -241,17 +182,24 @@ function remove_folder_within_subfolder {
 	fi
 }
 # -------------------------------------------------------------------
-function remove_file_within_subfolder {
+function remove_file_in_folders {
 
 	if [[ -z "$1" ]] ; then
-		echo -e "\e[33m[ERROR in function \"remove_file_within_subfolder\"]: 1st argument is empty\e[33m"
+		echo -e "\n\e[33m[ERROR in \"remove_file_in_folders\"]: 1st argument\n\t -> Function without arguments\e[33m\n"
+		return
 	fi
 
 	if [[ -z "$2" ]] ; then
-		echo -e "\e[33m[ERROR in function \"remove_file_within_subfolder\"]: 2nd argument is empty\e[33m"
+		echo -e "\n\e[33m[ERROR in \"remove_file_in_folders\"]: 2nd argument\n\t -> No maximum layer assigned\e[33m\n"
+		return
 	fi
 
-	if [ -e "$1" ] && ! [[ -z "$1" ]] && ! [[ -z "$2" ]] ; then
+	if [[ -z "$3" ]] ; then
+		echo -e "\n\e[33m[ERROR in \"remove_file_in_folders\"]: 3rd argument\n\t -> There must be, at least, one file to delete\e[33m\n"
+		return
+	fi
+
+	if [ -e "$1" ] ; then
 
 		first_argument=$1
 		second_argument=$2
@@ -290,7 +238,7 @@ function remove_file_within_subfolder {
 						fi
 
 					elif [ -d "$first_argument/${i}" ] ; then
-						remove_file_within_subfolder "$first_argument/${i}" $(($second_argument-1)) "${@}"
+						remove_file_in_folders "$first_argument/${i}" $(($second_argument-1)) "${@}"
 						first_argument=${first_argument%/*}
 						second_argument=$(($second_argument+1))
 							
@@ -304,14 +252,16 @@ function remove_file_within_subfolder {
 function remove_empty_files_folders {
 
 	if [[ -z "$1" ]] ; then
-		echo -e "\e[33m[ERROR in function \"remove_empty_files_folders\"]: 1st argument is empty\e[33m"
+		echo -e "\n\e[33m[ERROR in \"remove_empty_files_folders\"]: 1st argument\n\t -> Function without arguments\e[33m\n"
+		return
 	fi
 
 	if [[ -z "$2" ]] ; then
-		echo -e "\e[33m[ERROR in function \"remove_empty_files_folders\"]: 2nd argument is empty\e[33m"
+		echo -e "\n\e[33m[ERROR in \"remove_empty_files_folders\"]: 2nd argument\n\t -> No maximum layer assigned\e[33m\n"
+		return
 	fi
 
-	if [ -e "$1" ] && ! [[ -z "$1" ]] && ! [[ -z "$2" ]] ; then
+	if [ -e "$1" ] ; then
 
 		first_argument=$1
 		second_argument=$2
