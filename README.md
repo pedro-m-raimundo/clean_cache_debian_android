@@ -93,27 +93,27 @@ In order for this to work on **Ubuntu**, you need:
 
 | Version number | Description |
 |----------------|:------------|
-| 3.3 | Removed 2 functions ("_remove_folder_within_folder_" and "_remove_file_within_folder_") because they were just the two recursive functions ("_remove_folder_within_subfolder_" and "_remove_file_within_subfolder_") on layer 1. Renamed three functions ("_remove_folder_within_subfolder_" to "_remove_folder_in_folders_", "_remove_file_within_subfolder_" to "_remove_file_in_folders_" and "_remove_folder_within_folder_" to "_remove_type_"). Warning messages were also improved. |
-| 3.2.1 | Rewrite of the displayed error messages, because the "_caller_" function doesn't work on shell. So, instead of showing the line, now it shows the name of the function. |
+| 3.3 | <ul><li> Removed 2 functions (**_remove_folder_within_folder_** and **_remove_file_within_folder_**) because they were just the two recursive functions (**_remove_folder_within_subfolder_** and **_remove_file_within_subfolder_**) on layer 1.</li><li>  Renamed three functions: <ul><li>**_remove_folder_within_subfolder_** to **_remove_folder_in_folders_**</li><li> **_remove_file_within_subfolder_** to **_remove_file_in_folders_** </li><li> **_remove_folder_within_folder_** to **_remove_type_**.</li></ul></li><li> Warning messages were also improved.</li></ul> |
+| 3.2.1 | Rewrite of the displayed error messages, because the **_caller_** function doesn't work on shell. So, instead of showing the line, now it shows the name of the function. |
 | 3.2 | Rewrite of the version 3.1.3, to make all functions display error messages when arguments are missing. |
 | 3.1.3 | Error message is displayed when the second argument of the last three functions is not an integer and shows the line where the function is called. |
-| 3.1.2 | Added another condition to all functions that allow searching in layers to accept only integers on their second argument ("_remove_folder_within_subfolder_", "_remove_file_within_subfolder_" and "_remove_empty_files_folders_"). |
-| 3.1.1 | Added a condition to all functions (except "_remove_file_" and "_remove_folder_") to skip them if the main folder doesn't exist. |
-| 3.1 | Restored two functions where a folders and files can be directly deleted instead of searching for them ("_remove_file_" and "_remove_folder_"). |
-| 3.0 | Complete overhaul on the system functions. Many bugs led to the rewrite of all them. All of them were fixed, some of them were renamed and others were created. It was also added compatibility between Android and Ubuntu (they both use Shell). Performance is lower than the other versions, but reliability was increased. |
+| 3.1.2 | Added another condition to all functions that allow searching in layers to accept only integers on their second argument (**_remove_folder_within_subfolder_**, **_remove_file_within_subfolder_** and **_remove_empty_files_folders_**). |
+| 3.1.1 | Added a condition to all functions (except **_remove_file_** and **_remove_folder_**) to skip them if the main folder doesn't exist. |
+| 3.1 | Restored two functions where a folders and files can be directly deleted instead of searching for them (**_remove_file_** and **_remove_folder_**). |
+| 3.0 | <ul><li>Complete overhaul on the system functions. Many bugs led to the rewrite of all them. All of them were fixed, some of them were renamed and others were created.</li><li>It was also added compatibility between Android and Ubuntu (they both use Shell).</li><li> Performance is lower than the other versions, but reliability was increased.</li></ul> |
 | 2.3.2 | Fixed a bug on the last function, where at folders were not skipped. |
 | 2.3.1 | Fixed bug in functions where not all arguments were parsed. |
 | 2.3 | Altered the first 3 function in order to parse multiple arguments. |
-| 2.2.1 | Fixed bug on "_remove_empty_files_folders_" function where it basically skipped the first argument as well. |
-| 2.2 | Added the option to skip multiple files and folders in the function "_remove_empty_files_folders_". |
-| 2.1 | Created a _README_ text file. |
+| 2.2.1 | Fixed bug on **_remove_empty_files_folders_** function where it basically skipped the first argument as well. |
+| 2.2 | Added the option to skip multiple files and folders in the function **_remove_empty_files_folders_**. |
+| 2.1 | Created a **_README_** file. |
 | 2.0 | Separating functions and user preferences into two separate files. |
 | 1.1 | Resolving problems with permissions. |
 | 1.0 | Cleaning some junk code and making it "_look great_". |
-| 0.6 | Added a condition in the "_remove_empty_files_folders_" function to skip certain folders. Its not fully implemented yet. |
-| 0.5 | "_remove_empty_files_folders_" can now delete empty files and folders from subdirectories. |
-| 0.4 | function "_remove_empty_files_folders_" created, but only working in the main folder, not the subfolders. |
-| 0.3 | "_remove_type_" was added. |
-| 0.2 | implemented function "_remove_folder_". |
-| 0.1.1 | "_echo_" was added to the below function. |
-| 0.1 | created "_remove_" function. |
+| 0.6 | Added a condition in the **_remove_empty_files_folders_** function to skip certain folders. Its not fully implemented yet. |
+| 0.5 | **_remove_empty_files_folders_** can now delete empty files and folders from subdirectories. |
+| 0.4 | function **_remove_empty_files_folders_** created, but only working in the main folder, not the subfolders. |
+| 0.3 | **_remove_type_** was added. |
+| 0.2 | implemented function **_remove_folder_**. |
+| 0.1.1 | **_echo_** was added to the below function. |
+| 0.1 | created **_remove_** function. |
