@@ -26,29 +26,29 @@ In order for this to work on **Ubuntu**, you need:
 
 * **_remove_folder_**: delete folders.
 	* all arguments: full path of the folders.
-<p>
+
 
 * **_remove_file_**: delete files.
 	* all arguments: full path of the files.
-<p>
+
 
 * **_remove_type_within_folder_**: delete files with the same extension from a certain folder.
 	* arguments:
 		* 1st &rarr; folder (full path).
 		* 2nd to last &rarr; extension type.
-<p>
+
 
 * **_remove_folder_within_folder_**: remove certain folders within a directory.
 	* arguments:
 		* 1st &rarr; directory where the folders are (full path).
 		* 2nd to last &rarr; folders to delete (name of the folder).
-<p>
+
 
 * **_remove_file_within_folder_**: remove certain files within a directory.
 	* arguments:
 		* 1st &rarr; directory where the files are (full path).
 		* 2nd to last &rarr; files to delete (name of the file).
-<p>
+
 
 * **_remove_folder_within_subfolder_**: remove certain folders within a directory.
 	* arguments:
@@ -59,7 +59,7 @@ In order for this to work on **Ubuntu**, you need:
 			* = 0 &rarr; nothing happens.
 			* anything else &rarr; the main folders and all subfolders
 		* 3rd to last &rarr; folders to delete (name of the folder).
-<p>
+
 
 * **_remove_file_within_subfolder_**: remove certain files within a directory.
 	* arguments:
@@ -70,7 +70,7 @@ In order for this to work on **Ubuntu**, you need:
 			* = 0 &rarr; nothing happens.
 			* anything else &rarr; the main folders and all subfolders
 		* 3rd to last &rarr; files to delete (name of the folder).
-<p>
+
 
 * **_remove_empty_files_folders_**: delete empty files and folders in the main folders and in all subfolders.
 	* arguments:
