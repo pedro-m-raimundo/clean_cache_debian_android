@@ -33,47 +33,43 @@ In order for this to work on **Ubuntu**, you need:
 
 
 * **_remove_type_**: delete files with the same extension from a certain folder.
-	* arguments:
-		* 1st &rarr; folder (full path).
-		* 2nd &rarr; how many layers should the function go. Choose:
-			* = 1 &rarr; only the folder itself.
-			* \> 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
-			* = 0 &rarr; nothing happens.
-			* anything else &rarr; the main folders and all subfolders.
-		* 3rd to last &rarr; extension type.
+	* 1st argument &rarr; directory where the folders are (full path).
+	* 2nd argument &rarr; how many layers should the function go. Choose:
+		* = 1 &rarr; only the folder itself.
+		* \> 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
+		* = 0 &rarr; nothing happens.
+		* anything else &rarr; the main folders and all subfolders.
+	* 3rd to last arguments &rarr; extension type.
 
 
 * **_remove_folder_in_folders_**: remove certain folders within a directory.
-	* arguments:
-		* 1st &rarr; directory where the folders are (full path).
-		* 2nd &rarr; how many layers should the function go. Choose:
-			* = 1 &rarr; only the folder itself.
-			* \> 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
-			* = 0 &rarr; nothing happens.
-			* anything else &rarr; the main folders and all subfolders.
-		* 3rd to last &rarr; folders to delete (name of the folder).
+	* 1st argument &rarr; directory where the folders are (full path).
+	* 2nd argument &rarr; how many layers should the function go. Choose:
+		* = 1 &rarr; only the folder itself.
+		* \> 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
+		* = 0 &rarr; nothing happens.
+		* anything else &rarr; the main folders and all subfolders.
+	* 3rd to last arguments &rarr; folders to delete (name of the folder).
 
 
 * **_remove_file_in_folders_**: remove certain files within a directory.
-	* arguments:
-		* 1st &rarr; directory where the files are (full path).
-		* 2nd &rarr; how many layers should the function go. Choose:
-			* = 1 &rarr; only the folder itself.
-			* \> 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
-			* = 0 &rarr; nothing happens.
-			* anything else &rarr; the main folders and all subfolders.
-		* 3rd to last &rarr; files to delete (name of the folder).
+	* 1st argument &rarr; directory where the files are (full path).
+	* 2nd argument &rarr; how many layers should the function go. Choose:
+		* = 1 &rarr; only the folder itself.
+		* \> 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
+		* = 0 &rarr; nothing happens.
+		* anything else &rarr; the main folders and all subfolders.
+	* 3rd to last arguments &rarr; files to delete (name of the folder).
 
 
 * **_remove_empty_files_folders_**: delete empty files and folders in the main folders and in all subfolders.
-	* arguments:
-		* 1st &rarr; main folder (full path).
-		* 2nd &rarr; how many layers should the function go. Choose:
-			* = 1 &rarr; only the folder itself.
-			* \> 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
-			* = 0 &rarr; nothing happens.
-			* anything else &rarr; the main folders and all subfolders.
-		* 3rd to last (optional) &rarr; folders and files to skip, if any (full path).
+	* 1st argument &rarr; main folder (full path).
+	* 2nd argument &rarr; how many layers should the function go. Choose:
+		* = 1 &rarr; only the folder itself.
+		* \> 1 &rarr; the main folder and subfolders, until they reach the maximum layer given.
+		* = 0 &rarr; nothing happens.
+		* anything else &rarr; the main folders and all subfolders.
+	* 3rd to last arguments (optional) &rarr; folders and files to skip, if any (full path).
 
 ------
 
