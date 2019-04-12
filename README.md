@@ -14,7 +14,7 @@ In order for this to work on **Android**, you need:
 5. Enjoy!
 ------
 
-In order for this to work on **Ubuntu**, you need:
+In order for this to work on a **Debian Distribution**, you need:
 
 1. Put the folder with the scripts on a directory of your choice.
 2. **ONLY MODIFY THE CLEAN_CACHE_USER FILE with the available functions. Also beware that not all text editors for Windows work for this kind of script (It's because of the "Enter" key)!**
